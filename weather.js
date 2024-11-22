@@ -16,7 +16,7 @@ function process(infos){
     try{
         const {resolvedAddress,currentConditions,days}= infos
         const {temp,humidity,cloudcover,conditions,icon,windspeed,uvindex}=currentConditions
-        //const iconUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/icons/${icon}.png?key=ENU9K6H5444M2QL3U37KHEWJ7`;
+        
         const weeksdata=days.slice(1,8).map(day=>({
             date:day.date,
             condition:day.conditions,
@@ -26,7 +26,7 @@ function process(infos){
             location:resolvedAddress,
             temp:temp,
             conditions,
-            //iconUrl,
+            icon,
 
             humidity,
             cloudcover,
@@ -72,6 +72,7 @@ async function weather() {
      <h1>${location}</h1>
      <h5>${processeddata.conditions}</h5>
     
+    
      `
      console.log("here is ur data:",processeddata) 
     }
@@ -81,7 +82,7 @@ async function weather() {
 
 
 //}
-// <img id="weather-icon" alt="Weather Icon" width="50" height="50" src="${processeddata.iconUrl}">
+
 
 weather()
 
